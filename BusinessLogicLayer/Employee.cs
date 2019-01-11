@@ -53,7 +53,7 @@ namespace BusinessLogicLayer
                     {
 
                         EmployeeFactory factory = null;
-                        factory = new EmployeeHourlyFactory(_monthlySalary, _monthlySalary);
+                        factory = new EmployeeHourlyFactory(_hourlySalary, _monthlySalary);
                         EmployeeDTO employee = factory.GetEmployee();
                         employee.Id = obj[i].Id;
                         employee.Name = obj[i].Name;
@@ -62,12 +62,13 @@ namespace BusinessLogicLayer
                         employee.RoleId = obj[i].RoleId;
                         employee.RoleDescription = obj[i].RoleDescription;
                         employee.HourlySalary = Convert.ToDouble(obj[i].HourlySalary);
+                        employee.MonthlySalary = Convert.ToDouble(obj[i].MonthlySalary);
                         objResult.Add(employee);
                     }
                     else
                     {
                         EmployeeFactory factory = null;
-                        factory = new EmployeeMonthlyFactory(_monthlySalary, _monthlySalary);
+                        factory = new EmployeeMonthlyFactory(_hourlySalary, _monthlySalary);
                         EmployeeDTO employee = factory.GetEmployee();
                         employee.Id = obj[i].Id;
                         employee.Name = obj[i].Name;
@@ -75,7 +76,8 @@ namespace BusinessLogicLayer
                         employee.RoleName = obj[i].RoleName;
                         employee.RoleId = obj[i].RoleId;
                         employee.RoleDescription = obj[i].RoleDescription;
-                        employee.HourlySalary = Convert.ToDouble(obj[i].MonthlySalary);
+                        employee.HourlySalary = Convert.ToDouble(obj[i].HourlySalary);
+                        employee.MonthlySalary = Convert.ToDouble(obj[i].MonthlySalary);
                         objResult.Add(employee);
                     }
                 }
